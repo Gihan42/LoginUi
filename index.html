@@ -1,0 +1,343 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+
+    <title>Document</title>
+</head>
+<style>
+*{
+    margin: 0;
+    padding:0 ;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url(assest/fog-dark-clouds-mountains.jpg)no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+header{
+    position: fixed;
+    top: 0;
+    left:0;
+    width: 100%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99 ;
+}
+.logo{
+    font-size:2em ;
+    color: #fff;
+    user-select: none;
+}
+.navigation a{
+    position: relative;
+    font-size: 1.1em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+}
+/* test */
+.navigation a::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+    transform: scale(0);
+    transition: .5s;
+}
+.navigation a:hover::after{
+    transform: scale(1);
+
+}
+/*  */
+.navigation .btnlogin-popup{
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    outline: none;
+    border: 2ps solid #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #fff;
+    font-weight: 500;
+    margin-left: 40px;
+    transition: 5s;
+}
+.navigation .btnlogin-popup:hover{
+background-color: #fff;
+color: black;
+}
+/* LOGIN */
+.wrapper{
+    position: relative;
+    width: 400px;
+    height: 440px;
+    background: transparent;
+    border: 2px solid rgba(255,255, 255, 5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0,0,0,.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* overflow: hidden; */
+    transition: height .2s ease ;
+}
+.wrapper .active{
+    height: 520px;
+}
+.wrapper .icon-close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background:#162938;
+    font-size: 2em;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 20px;
+   cursor: pointer;
+   z-index:1 ;
+}
+.wrapper .from-box{
+    width: 100%;
+    padding: 40px;
+}
+
+.wrapper .from-box.register{
+        position: absolute;
+        transform: translateX(400px);
+}
+.from-box h2{
+    font-size: 2em;
+    color: #162938;
+    text-align: center;
+}
+.input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #162938;
+    margin: 30px 0 ;
+}
+.input-box label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #162938;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;
+}
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #162938;
+    font-weight:600;
+    padding: 0 35px 0 5px;
+}
+.input-box input:focus~label,
+.input-box input:valid~label{
+   top: -5px; 
+}
+
+.input-box .icon{
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    color: #162938;
+    line-height: 57px;
+}
+.remember-forget{
+    font-size: .9em;
+    color: #fff;
+    font-weight: 500;
+    margin: 15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+.remember-forget label input{
+    accent-color: #162938;
+    margin-right: 4px;
+}
+.remember-forget a{
+    color: #162938;
+    text-decoration: none;
+}
+.remember-forget a:hover{
+    text-decoration: underline;
+}
+.btn,#btn1{
+    width: 100%;
+    height: 45px;
+    background: #162938;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    color: #fff;
+    font-weight: 500;
+}
+.login-register{
+    font-size: .9em;
+    color: #162938;
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 10px;
+}
+.login-register p a{
+    color: #162938;
+    text-decoration: none;
+    font-weight: 600;
+}
+.login-register p a:hover{
+    text-decoration: underline;
+}
+#exampleModalToggleDiv{
+        width: 400px;
+        height: 450px;
+        background: transparent;
+        border: 2px solid rgba(255,255, 255, 5);
+        border-radius: 20px;
+        backdrop-filter: blur(12px);
+        box-shadow: 0 0 30px rgba(0,0,0,.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* overflow: hidden; */
+        transition: height .2s ease ;
+    }
+    #exampleModalToggleDiv .icon-close{
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 45px;
+          height: 45px;
+          background:#162938;
+          font-size: 2em;
+          color: #fff;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-bottom-left-radius: 20px;
+          border-top-right-radius: 20px;
+          cursor: pointer;
+          z-index:1 ;
+          overflow: hidden;
+
+      }
+</style>
+<body>
+    <header>
+        <h2 class="logo">Logo</h2>
+        <nav class="navigation">
+            <a href="" class="href">Home</a>
+            <a href="" class="href">About</a>
+            <a href="" class="href">Service</a>
+            <a href="" class="href">Contact</a>
+            <button class="btnlogin-popup" data-bs-toggle="modal"  data-bs-target="#exampleModalToggle">Login</button>
+        </nav>
+    </header>
+<!-- LOGIN -->
+    <div class="wrapper">
+        <span class="icon-close">
+            <ion-icon name="close-outline"></ion-icon>
+        </span>
+        <div class="from-box login">
+            <h2>Login</h2>
+            <form action="">
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="mail-unread-outline"></ion-icon></span>
+                    <input type="email" required>
+                    <label>Email</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+                    <input type="password" required>
+                    <label>Password</label>
+                </div>
+                <div class="remember-forget">
+                    <label ><input type="checkbox">Remember me</label>
+                    <a href="">Forget Password?</a>
+                </div>
+                <button type="submit" class="btn">login</button>
+                <div class="login-register">
+                    <p>Don't have an account?<a href="" class="register-link">Register</a></p>
+                </div>
+            </form>
+        </div>
+</div>
+
+        <!-- /////////// -->
+        <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered" >
+                <div class="modal-content" id="exampleModalToggleDiv">
+                <span class="icon-close">
+                <ion-icon name="person-circle-outline"></ion-icon>
+            </span>
+                <div class="from-box login" >
+                    <h2 style="color: white"> Register</h2>
+                    <form action="">
+                        <div class="input-box" >
+                            <span class="icon"><ion-icon name="mail-unread-outline" style="color: white"></ion-icon></span>
+                            <input type="text" required >
+                            <label style="color: white">UserName</label>
+                        </div>
+                        <div class="input-box" >
+                            <span class="icon"><ion-icon name="mail-unread-outline" style="color: white"></ion-icon></span>
+                            <input type="email" required >
+                            <label style="color: white">Email</label>
+                        </div>
+                        <div class="input-box">
+                            <span class="icon" style="color: white"><ion-icon name="lock-closed-outline"></ion-icon></span>
+                            <input type="password" required >
+                            <label style="color: white">Password</label>
+                        </div>
+                        
+                        <button type="submit" class="" id="btn1">Register</button>
+                        <div class="login-register">
+                            <p class="text-white">Already have an account?<a href="" class="register-link" style="color: blue;" >Login</a></p>
+                        </div>
+                    </form>
+                </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+    <script>
+     
+
+    </script>
+</body>
+</html>
